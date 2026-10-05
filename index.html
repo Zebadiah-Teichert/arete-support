@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Areté — Support</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #120F0A;
+    --bg-mid: #1C170F;
+    --ink-dark: #1F1408;
+    --parchment: #C2A373;
+    --gold: #D18F29;
+    --gold-light: #E6AD36;
+    --gold-dim: #AD7A29;
+    --text: #D1B380;
+    --text-muted: #BFA47A;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.65;
+    min-height: 100%;
+  }
+
+  body {
+    background:
+      radial-gradient(circle at 20% 10%, rgba(209,143,41,0.07) 0%, transparent 40%),
+      radial-gradient(circle at 80% 90%, rgba(209,143,41,0.05) 0%, transparent 40%),
+      linear-gradient(180deg, var(--bg) 0%, var(--bg-mid) 50%, var(--bg) 100%);
+    padding: 0;
+  }
+
+  .parchment-texture {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.1) 0 1px, transparent 1px 3px),
+      repeating-linear-gradient(-45deg, rgba(255,255,255,0.1) 0 1px, transparent 1px 3px);
+    z-index: 0;
+  }
+
+  main {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 80px 32px 120px;
+  }
+
+  .brand {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .brand-mark {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 8px;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+
+  .brand-mark .star {
+    color: var(--gold-light);
+    margin: 0 10px;
+  }
+
+  h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 44px;
+    letter-spacing: 2px;
+    color: var(--text);
+    font-weight: 500;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 60px 0 40px;
+    gap: 18px;
+  }
+
+  .divider-line {
+    flex: 1;
+    max-width: 160px;
+    height: 1px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      var(--gold-dim) 50%,
+      transparent 100%);
+  }
+
+  .divider-mark {
+    color: var(--gold);
+    font-size: 14px;
+    letter-spacing: 4px;
+  }
+
+  section {
+    margin-bottom: 72px;
+  }
+
+  h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 24px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 17px;
+    letter-spacing: 2px;
+    color: var(--text);
+    font-weight: 500;
+    margin: 32px 0 10px;
+  }
+
+  p {
+    margin-bottom: 16px;
+    color: var(--text);
+  }
+
+  p.muted {
+    color: var(--text-muted);
+    font-size: 17px;
+  }
+
+  a {
+    color: var(--gold-light);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold-dim);
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  a:hover {
+    color: var(--gold-light);
+    border-bottom-color: var(--gold-light);
+  }
+
+  .contact-card {
+    background:
+      linear-gradient(135deg, rgba(209,143,41,0.08) 0%, rgba(209,143,41,0.02) 100%);
+    border: 1px solid var(--gold-dim);
+    border-radius: 2px;
+    padding: 32px 28px;
+    text-align: center;
+    position: relative;
+  }
+
+  .contact-card::before,
+  .contact-card::after {
+    content: '✦';
+    position: absolute;
+    color: var(--gold);
+    font-size: 10px;
+    top: -6px;
+    background: var(--bg-mid);
+    padding: 0 6px;
+  }
+  .contact-card::before { left: 24px; }
+  .contact-card::after { right: 24px; }
+
+  .contact-label {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .contact-email {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--text);
+    border: none;
+  }
+
+  .faq-item {
+    border-top: 1px solid rgba(173,122,41,0.25);
+    padding: 24px 0;
+  }
+
+  .faq-item:last-child {
+    border-bottom: 1px solid rgba(173,122,41,0.25);
+  }
+
+  .faq-q {
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: var(--text);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+
+  .faq-a {
+    color: var(--text-muted);
+    font-size: 17px;
+  }
+
+  .policy p { font-size: 16px; color: var(--text-muted); }
+  .policy strong { color: var(--text); font-weight: 500; }
+  .policy ul { margin: 8px 0 20px 24px; color: var(--text-muted); }
+  .policy ul li { margin-bottom: 6px; font-size: 16px; }
+
+  footer {
+    margin-top: 100px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-family: 'Cinzel', serif;
+    opacity: 0.7;
+  }
+
+  @media (max-width: 600px) {
+    main { padding: 60px 24px 80px; }
+    h1 { font-size: 32px; }
+    h2 { font-size: 18px; letter-spacing: 3px; }
+    .tagline { font-size: 17px; }
+    .contact-email { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="parchment-texture"></div>
+<main>
+
+  <div class="brand">
+    <div class="brand-mark"><span class="star">✦</span>ARETÉ<span class="star">✦</span></div>
+    <h1>Support &amp; Policy</h1>
+    <p class="tagline">A habit tracker for heroes.</p>
+  </div>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-mark">✦</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <section>
+    <h2>Contact</h2>
+    <p style="text-align: center; max-width: 520px; margin: 0 auto 28px;" class="muted">
+      Found a problem, have a feature idea, or need help with your account? Reach out and you will hear back.
+    </p>
+    <div class="contact-card">
+      <div class="contact-label">WRITE TO THE CHRONICLER</div>
+      <a href="mailto:arete.app.support@gmail.com" class="contact-email">arete.app.support@gmail.com</a>
+    </div>
+  </section>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-mark">✦</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <section>
+    <h2>Frequent Questions</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">How does iCloud sync work?</div>
+      <div class="faq-a">
+        Your Chronicle syncs automatically to your personal iCloud when signed in on your Apple device. All data lives in your private database, which only you can access. Areté has no servers and never sees your data.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">I deleted the app. Will I lose my progress?</div>
+      <div class="faq-a">
+        No. Your data persists in your iCloud. Reinstall Areté on the same Apple ID and your Chronicle will restore. On the welcome screen, tap <em>Returning? Restore from iCloud</em> if it does not come back automatically.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How do I cancel my subscription?</div>
+      <div class="faq-a">
+        Open the Settings app on your device, tap your name at the top, then <em>Subscriptions</em>. Find Areté in the list and tap <em>Cancel Subscription</em>. You will retain access until the end of your current billing period.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">What does the free tier include?</div>
+      <div class="faq-a">
+        Everything, with limits. The full Chronicle, 3 rituals, 3 quests, 1 oath, unlimited deeds, and unlimited daily notes. Premium removes the creation limits and funds the independent developer behind the app.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">I have an unlock code. Where do I enter it?</div>
+      <div class="faq-a">
+        Open Settings in the app, tap <em>Enter Unlock Code</em>, and enter your code. If accepted, premium unlocks for the lifetime of this install.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Does Areté track me?</div>
+      <div class="faq-a">
+        No. There are no analytics, no advertising SDKs, and no third-party data collection. See the policy below for the full statement.
+      </div>
+    </div>
+  </section>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-mark">✦</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <section class="policy">
+    <h2>Privacy Policy</h2>
+    <p class="muted" style="text-align: center; margin-bottom: 32px;">
+      <em>Last updated: October 2026</em>
+    </p>
+
+    <p>Areté is designed with privacy as a first principle. This policy explains, plainly, what data the app handles and what it does with it.</p>
+
+    <h3>What We Collect</h3>
+    <p><strong>Nothing.</strong> Areté does not collect personal data. There are no analytics, no advertising networks, no crash reporting services, and no third-party data processors. No information is sent to any server operated by the developer.</p>
+
+    <h3>Where Your Data Lives</h3>
+    <ul>
+      <li><strong>On your device.</strong> All habit, ritual, quest, oath, deed, and chronicle data is stored locally in your app's private container.</li>
+      <li><strong>In your iCloud.</strong> If signed into iCloud on your Apple device, your data syncs to your personal, private iCloud database. This storage is managed by Apple and counts against your own iCloud quota. The developer has no access to it.</li>
+    </ul>
+
+    <h3>Third-Party Services</h3>
+    <p>Areté integrates with the following Apple-provided services, each governed by Apple's own privacy policy:</p>
+    <ul>
+      <li><strong>CloudKit.</strong> Used for private iCloud sync of your chronicle.</li>
+      <li><strong>StoreKit.</strong> Used to manage subscriptions and in-app purchases.</li>
+      <li><strong>EventKit.</strong> Used, with your explicit permission, to add Quests to your Calendar.</li>
+      <li><strong>User Notifications.</strong> Used to send ritual reminders you configure.</li>
+    </ul>
+
+    <h3>Permissions</h3>
+    <p>Areté requests access to Notifications and Calendar only when you choose to use features that require them. You may revoke either permission at any time in iOS Settings.</p>
+
+    <h3>Children</h3>
+    <p>Areté is not directed at children under 13 and does not knowingly collect any information from children.</p>
+
+    <h3>Changes to This Policy</h3>
+    <p>If this policy ever changes, the new version will be posted on this page with an updated date. Since Areté does not collect data, changes to this policy will typically be clarifications rather than new disclosures.</p>
+
+    <h3>Contact</h3>
+    <p>Questions about this policy may be sent to <a href="mailto:arete.app.support@gmail.com">arete.app.support@gmail.com</a>.</p>
+  </section>
+
+  <footer>
+    &copy; 2026 Zebadiah Teichert &nbsp;&middot;&nbsp; All rights reserved
+  </footer>
+
+</main>
+</body>
+</html>
